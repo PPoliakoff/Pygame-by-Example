@@ -6,15 +6,40 @@ Writing classic games as a demonstration of pygame
 
 This is a list of classic games written using the pyththon game library PyGame
 
+- Jump
 - Breakout
-- Labyrinth (still to be written)
+- Pacman [Tutoriel en Français](pacman/tutoriel/Introduction.md)
+- Snake
+- Spiro
 - Memory (still to be written)
 - Minesweeper (still to be written)
 - Moon buggy (still to be written)
-- Space Incvaders (still to be written)
+- Space Invaders (still to be written)
 - Falling Blocks (still to be written)
-- Snake (still to be written)
+- Jump man (still to be written)
+
+## Jump
+
+![](documents/jump.png)
 
 ## Breakout
 
 ![](documents/breakout.png)
+
+## [Pacman](PacMan/pacman.md)
+
+[Tutoriel en Français ](pacman/turoriel/pacmanIntro.md)
+
+![](documents/pacman.png)
+
+## [Spiro](spiro/spiro.md)
+
+![](documents/spiro.png)
+
+## [snake](snake/snake.md)
+
+![](documents/snake.png)
+
+## [Bomber]()
+
+![](documents/Bomber.png)
