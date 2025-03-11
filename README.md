@@ -11,6 +11,7 @@ This is a list of classic games written using the pyththon game library PyGame
 - Pacman [Tutoriel en Français](pacman/tutoriel/Introduction.md)
 - Snake
 - Spiro
+- Bomber
 - Memory (still to be written)
 - Minesweeper (still to be written)
 - Moon buggy (still to be written)
@@ -43,3 +44,7 @@ This is a list of classic games written using the pyththon game library PyGame
 ## [Bomber]()
 
 ![](documents/Bomber.png)
+
+## [Centipede]()
+
+![](documents/centipede.png)
