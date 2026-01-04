@@ -1,0 +1,345 @@
+bomber/bomber.py:import pygame
+bomber/bomber.py:import pygame.midi
+bomber/bomber.py:pygame.init()
+bomber/bomber.py:pygame.font.init()
+bomber/bomber.py:screen = pygame.display.set_mode((710, 499))
+bomber/bomber.py:font = pygame.font.SysFont("Courier", 30, bold=True, )
+bomber/bomber.py:pygame.midi.init()
+bomber/bomber.py:midi = pygame.midi.Output(0)
+bomber/bomber.py:    image = pygame.Surface((16, 16))
+bomber/bomber.py:                pygame.draw.rect(image, color1, (x*2, y*2, 2, 2))
+bomber/bomber.py:clock = pygame.time.Clock()
+bomber/bomber.py:    for e in pygame.event.get():
+bomber/bomber.py:        if e.type == pygame.QUIT:
+bomber/bomber.py:        keys = pygame.key.get_pressed()
+bomber/bomber.py:        if keys[pygame.K_RETURN]:
+bomber/bomber.py:    pygame.display.flip()
+breakout/breakout.py:import pygame
+breakout/breakout.py:        self.font = pygame.font.Font(None, 100)
+breakout/breakout.py:        self.fontGui = pygame.font.Font(None, 32)
+breakout/breakout.py:        self.gameSurface = pygame.Surface((self.gameWidth, self.gameHeight))
+breakout/breakout.py:        self.guiSurface = pygame.Surface((self.gameWidth, self.guiHeight))
+breakout/breakout.py:        screen.blit(pygame.transform.scale_by(self.guiSurface, self.scale),
+breakout/breakout.py:        screen.blit(pygame.transform.scale_by(self.gameSurface, self.scale),
+breakout/breakout.py:        pygame.display.flip()
+breakout/breakout.py:        pygame.draw.circle(gameDisplay, (255, 255, 255),
+breakout/breakout.py:        return pygame.Rect(self.ball_x-self.ball_radius, self.ball_y-self.ball_radius, self.ball_radius*2, self.ball_radius*2)
+breakout/breakout.py:        self.surface = pygame.Surface((self.width, self.height))
+breakout/breakout.py:        self.color = pygame.Color(BRICK.colors[life])
+breakout/breakout.py:        pygame.draw.rect(self.surface, self.color+pygame.Color(50, 50, 50), (margin, margin,
+breakout/breakout.py:        return pygame.Rect(self.x, self.y, self.width, self.height)
+breakout/breakout.py:            pygame.draw.polygon(gameDisplay, (0, 0, 0),
+breakout/breakout.py:            pygame.draw.polygon(gameDisplay, (0, 0, 0),
+breakout/breakout.py:            pygame.draw.rect(gameDisplay,  (0, 0, 0), (self.x,
+breakout/breakout.py:        self.beep = pygame.mixer.Sound("ping.wav")
+breakout/breakout.py:                    if pygame.Rect.colliderect(brick.Rect(), ballrect):
+breakout/breakout.py:                            # while pygame.Rect.colliderect(brick.Rect(), self.ball.Rect()):
+breakout/breakout.py:pygame.init()
+breakout/breakout.py:pygame.mixer.init()
+breakout/breakout.py:screen = pygame.display.set_mode((600, 400),  pygame.RESIZABLE)
+breakout/breakout.py:clock = pygame.time.Clock()
+breakout/breakout.py:display_info = pygame.display.Info()
+breakout/breakout.py:    for event in pygame.event.get():
+breakout/breakout.py:        if event.type == pygame.QUIT:
+breakout/breakout.py:        if event.type == pygame.VIDEORESIZE:
+breakout/breakout.py:    keys = pygame.key.get_pressed()
+breakout/breakout.py:        if keys[pygame.K_LEFT]:
+breakout/breakout.py:        if keys[pygame.K_RIGHT]:
+breakout/breakout.py:    if keys[pygame.K_SPACE]:
+breakout/breakout.py:        if keys[pygame.K_y]:
+breakout/breakout.py:        elif keys[pygame.K_n]:
+breakout/breakout.py:    if not pygame.key.get_focused():
+breakout/breakout.py:pygame.quit()
+buildingblock.md:import pygame
+buildingblock.md:pygame.init()
+buildingblock.md:screen = pygame.display.set_mode((1024, 768))
+buildingblock.md:            if keys[pygame.K_y]:
+buildingblock.md:            elif keys[pygame.K_n]:
+buildingblock.md:clock = pygame.time.Clock()
+buildingblock.md:    for e in pygame.event.get():
+buildingblock.md:        if e.type == pygame.QUIT:
+buildingblock.md:    keys = pygame.key.get_pressed()
+buildingblock.md:    pygame.display.flip()
+buildingblock.md:In case of a `pygame.VIDEORESIZE` event, we call the `GameScreen.resize(w,h)` method to update the scaling
+buildingblock.md:screen = pygame.display.set_mode((600, 400),  pygame.RESIZABLE)
+buildingblock.md:        self.screen = pygame.Surface((self.gameWidth, self.gameHeight))
+buildingblock.md:        screen.blit(pygame.transform.scale_by(self.screen, self.scale),
+buildingblock.md:        pygame.display.flip()
+buildingblock.md:display_info = pygame.display.Info()
+buildingblock.md:    for e in pygame.event.get():
+buildingblock.md:        if e.type == pygame.QUIT:
+buildingblock.md:        if e.type == pygame.VIDEORESIZE:
+buildingblock.md:import pygame
+buildingblock.md:import pygame.midi
+buildingblock.md:pygame.init()
+buildingblock.md:pygame.font.init()
+buildingblock.md:pygame.midi.init()
+buildingblock.md:midi = pygame.midi.Output(0)
+buildingblock.md:font = pygame.font.SysFont("Courier", 32, bold=True, )
+buildingblock.md:screen = pygame.display.set_mode((1024, 768))
+buildingblock.md:    image = pygame.Surface((32, 32), flags=pygame.SRCALPHA)
+buildingblock.md:                pygame.draw.rect(image, color1, (x*4, y*4, 4, 4))
+buildingblock.md:clock = pygame.time.Clock()
+buildingblock.md:    for e in pygame.event.get():
+buildingblock.md:        if e.type == pygame.QUIT:
+buildingblock.md:    keys = pygame.key.get_pressed()
+buildingblock.md:        if keys[pygame.K_y]:
+buildingblock.md:        elif keys[pygame.K_n]:
+buildingblock.md:        if px > 0 and keys[pygame.K_LEFT]:
+buildingblock.md:        if px < 31 and keys[pygame.K_RIGHT]:
+buildingblock.md:        if py > 18 and keys[pygame.K_UP]:
+buildingblock.md:        if py < 22 and keys[pygame.K_DOWN]:
+buildingblock.md:            if keys[pygame.K_SPACE]:
+buildingblock.md:    pygame.display.flip()
+buildingblock.md:    image = pygame.Surface((32, 32), flags=pygame.SRCALPHA)
+buildingblock.md:                pygame.draw.rect(image, color1, (x*4, y*4, 4, 4))
+buildingblock.md:    pygame.display.flip()
+buildingblock.md:import pygame.midi
+buildingblock.md:pygame.midi.init()
+buildingblock.md:midi = pygame.midi.Output(0)
+Centipede/Centipede.py:import pygame
+Centipede/Centipede.py:import pygame.midi
+Centipede/Centipede.py:pygame.init()
+Centipede/Centipede.py:pygame.font.init()
+Centipede/Centipede.py:pygame.midi.init()
+Centipede/Centipede.py:midi = pygame.midi.Output(0)
+Centipede/Centipede.py:font = pygame.font.SysFont("Courier", 32, bold=True, )
+Centipede/Centipede.py:screen = pygame.display.set_mode((1024, 768))
+Centipede/Centipede.py:    image = pygame.Surface((32, 32), flags=pygame.SRCALPHA)
+Centipede/Centipede.py:                pygame.draw.rect(image, color1, (x*4, y*4, 4, 4))
+Centipede/Centipede.py:clock = pygame.time.Clock()
+Centipede/Centipede.py:    for e in pygame.event.get():
+Centipede/Centipede.py:        if e.type == pygame.QUIT:
+Centipede/Centipede.py:    keys = pygame.key.get_pressed()
+Centipede/Centipede.py:        if keys[pygame.K_y]:
+Centipede/Centipede.py:        elif keys[pygame.K_n]:
+Centipede/Centipede.py:        if px > 0 and keys[pygame.K_LEFT]:
+Centipede/Centipede.py:        if px < 31 and keys[pygame.K_RIGHT]:
+Centipede/Centipede.py:        if py > 18 and keys[pygame.K_UP]:
+Centipede/Centipede.py:        if py < 22 and keys[pygame.K_DOWN]:
+Centipede/Centipede.py:            if keys[pygame.K_SPACE]:
+Centipede/Centipede.py:    pygame.display.flip()
+invaders/invaders.py:import pygame
+invaders/invaders.py:class Player(pygame.sprite.Sprite):
+invaders/invaders.py:        self.image=pygame.Surface((30,20))
+invaders/invaders.py:        pygame.draw.polygon(self.image,(0,127,0),((0,19),(15,0),(29,19)))
+invaders/invaders.py:class Bombe(pygame.sprite.Sprite):
+invaders/invaders.py:        self.image=pygame.Surface((15,15))
+invaders/invaders.py:        pygame.draw.circle(self.image,(255,0,0),(8,8),7)
+invaders/invaders.py:class Missile(pygame.sprite.Sprite):
+invaders/invaders.py:        self.image=pygame.Surface((8,16))
+invaders/invaders.py:class Ennemi(pygame.sprite.Sprite):
+invaders/invaders.py:        self.image=pygame.Surface((40,40))
+invaders/invaders.py:pygame.init()
+invaders/invaders.py:screen = pygame.display.set_mode((800, 600))
+invaders/invaders.py:pygame.display.set_caption("Invaders")
+invaders/invaders.py:ennemis=pygame.sprite.Group()
+invaders/invaders.py:bombes=pygame.sprite.Group()
+invaders/invaders.py:missiles=pygame.sprite.Group()
+invaders/invaders.py:clock = pygame.time.Clock()
+invaders/invaders.py:    for event in pygame.event.get():
+invaders/invaders.py:        if event.type == pygame.QUIT:
+invaders/invaders.py:        if event.type== pygame.KEYDOWN and event.key==pygame.K_SPACE and len(missiles)<5:
+invaders/invaders.py:    keys=pygame.key.get_pressed()
+invaders/invaders.py:    if keys[pygame.K_LEFT] and player.rect.x>0:
+invaders/invaders.py:    elif keys[pygame.K_RIGHT] and player.rect.right<800:
+invaders/invaders.py:    if len(pygame.sprite.spritecollide(player,bombes,False))>0:
+invaders/invaders.py:    pygame.sprite.groupcollide(missiles,bombes,True,True)
+invaders/invaders.py:    pygame.sprite.groupcollide(missiles,ennemis,True,True)
+invaders/invaders.py:    pygame.display.flip()
+invaders/invaders_1.py:import pygame
+invaders/invaders_1.py:pygame.init()
+invaders/invaders_1.py:screen = pygame.display.set_mode((800, 600))
+invaders/invaders_1.py:pygame.display.set_caption("Invaders")
+invaders/invaders_1.py:clock = pygame.time.Clock()
+invaders/invaders_1.py:    for event in pygame.event.get():
+invaders/invaders_1.py:        if event.type == pygame.QUIT:
+invaders/invaders_1.py:    pygame.display.flip()
+Jump/jump.py:import pygame
+Jump/jump.py:pygame.init()
+Jump/jump.py:screen = pygame.display.set_mode((800, 400))
+Jump/jump.py:clock = pygame.time.Clock()
+Jump/jump.py:    b = pygame.Rect(xb, yb, sb, 60)
+Jump/jump.py:    pygame.draw.rect(screen, (64, 64, 0), pygame.Rect(0, 360, 800, 400))
+Jump/jump.py:    pygame.draw.rect(screen, (0, 0, 255), b)
+Jump/jump.py:        perdu = b.colliderect(pygame.Rect(xp-40, yp-40, 80, 80))
+Jump/jump.py:        pygame.draw.circle(screen, (255, 128, 0), (xp, yp), 40)
+Jump/jump.py:    pygame.display.flip()
+Jump/jump.py:    for e in pygame.event.get():
+Jump/jump.py:        if e.type == pygame.QUIT:
+Jump/jump.py:        if e.type == pygame.KEYDOWN and e.key == pygame.K_SPACE and yp == 320:
+Labyrinthe/labyrinthe.py:import pygame
+Labyrinthe/labyrinthe.py:pygame.init()
+Labyrinthe/labyrinthe.py:screen=pygame.display.set_mode((LARGEUR,HAUTEUR))
+Labyrinthe/labyrinthe.py:                pygame.draw.rect(screen,color,(MARGEX+x*CARRE,MARGEY+y*CARRE,CARRE,CARRE))
+Labyrinthe/labyrinthe.py:clock=pygame.time.Clock()
+Labyrinthe/labyrinthe.py:    for e in pygame.event.get():
+Labyrinthe/labyrinthe.py:        if e.type==pygame.QUIT:
+Labyrinthe/labyrinthe.py:        if e.type==pygame.KEYDOWN:
+Labyrinthe/labyrinthe.py:    pygame.display.flip()
+PacMan/PacMan_ch1.py:import pygame
+PacMan/PacMan_ch1.py:pygame.init()
+PacMan/PacMan_ch1.py:screen = pygame.display.set_mode((width, height))
+PacMan/PacMan_ch1.py:pygame.display.set_caption("Pacman")
+PacMan/PacMan_ch1.py:clock = pygame.time.Clock()
+PacMan/PacMan_ch1.py:    for event in pygame.event.get():
+PacMan/PacMan_ch1.py:        if event.type == pygame.QUIT:
+PacMan/PacMan_ch1.py:    pygame.display.flip()
+PacMan/PacMan_ch1.py:pygame.quit()
+PacMan/PacMan_ch2.py:import pygame
+PacMan/PacMan_ch2.py:                pygame.draw.rect(surface, (0, 0, 255), pygame.Rect(
+PacMan/PacMan_ch2.py:                pygame.draw.circle(surface, (127, 32, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch2.py:                pygame.draw.circle(surface, (127, 127, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch2.py:pygame.init()
+PacMan/PacMan_ch2.py:screen = pygame.display.set_mode((width, height))
+PacMan/PacMan_ch2.py:pygame.display.set_caption("Pacman")
+PacMan/PacMan_ch2.py:clock = pygame.time.Clock()
+PacMan/PacMan_ch2.py:    for event in pygame.event.get():
+PacMan/PacMan_ch2.py:        if event.type == pygame.QUIT:
+PacMan/PacMan_ch2.py:    pygame.display.flip()
+PacMan/PacMan_ch2.py:pygame.quit()
+PacMan/PacMan_ch3.py:import pygame
+PacMan/PacMan_ch3.py:            image = pygame.image.load(os.path.join(
+PacMan/PacMan_ch3.py:            self.images.append(pygame.transform.scale(image, (taille, taille)))
+PacMan/PacMan_ch3.py:        return pygame.Rect(self.positionX, self.positionY, self.taille, self.taille)
+PacMan/PacMan_ch3.py:                pygame.draw.rect(surface, (0, 0, 255), pygame.Rect(
+PacMan/PacMan_ch3.py:                pygame.draw.circle(surface, (127, 32, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch3.py:                pygame.draw.circle(surface, (127, 127, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch3.py:pygame.init()
+PacMan/PacMan_ch3.py:screen = pygame.display.set_mode((width, height))
+PacMan/PacMan_ch3.py:pygame.display.set_caption("Pacman")
+PacMan/PacMan_ch3.py:font = pygame.font.Font(None, 100)
+PacMan/PacMan_ch3.py:clock = pygame.time.Clock()
+PacMan/PacMan_ch3.py:    for event in pygame.event.get():
+PacMan/PacMan_ch3.py:        if event.type == pygame.QUIT:
+PacMan/PacMan_ch3.py:    pygame.display.flip()
+PacMan/PacMan_ch3.py:pygame.quit()
+PacMan/PacMan_ch4.py:import pygame
+PacMan/PacMan_ch4.py:            image = pygame.image.load(os.path.join(
+PacMan/PacMan_ch4.py:            self.images.append(pygame.transform.scale(image, (taille, taille)))
+PacMan/PacMan_ch4.py:        return pygame.Rect(self.positionX, self.positionY, self.taille, self.taille)
+PacMan/PacMan_ch4.py:        keys = pygame.key.get_pressed()
+PacMan/PacMan_ch4.py:        if keys[pygame.K_UP] and couloir(grilleX, grilleY-1):
+PacMan/PacMan_ch4.py:        elif keys[pygame.K_DOWN] and couloir(grilleX, grilleY+1):
+PacMan/PacMan_ch4.py:        elif keys[pygame.K_LEFT] and couloir(grilleX-1, grilleY):
+PacMan/PacMan_ch4.py:        elif keys[pygame.K_RIGHT] and couloir(grilleX+1, grilleY):
+PacMan/PacMan_ch4.py:                pygame.draw.rect(surface, (0, 0, 255), pygame.Rect(
+PacMan/PacMan_ch4.py:                pygame.draw.circle(surface, (127, 32, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch4.py:                pygame.draw.circle(surface, (127, 127, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch4.py:pygame.init()
+PacMan/PacMan_ch4.py:screen = pygame.display.set_mode((width, height))
+PacMan/PacMan_ch4.py:pygame.display.set_caption("Pacman")
+PacMan/PacMan_ch4.py:font = pygame.font.Font(None, 100)
+PacMan/PacMan_ch4.py:clock = pygame.time.Clock()
+PacMan/PacMan_ch4.py:    for event in pygame.event.get():
+PacMan/PacMan_ch4.py:        if event.type == pygame.QUIT:
+PacMan/PacMan_ch4.py:    pygame.display.flip()
+PacMan/PacMan_ch4.py:pygame.quit()
+PacMan/PacMan_ch5.py:import pygame
+PacMan/PacMan_ch5.py:            image = pygame.image.load(os.path.join(
+PacMan/PacMan_ch5.py:            self.images.append(pygame.transform.scale(image, (taille, taille)))
+PacMan/PacMan_ch5.py:        return pygame.Rect(self.positionX, self.positionY, self.taille, self.taille)
+PacMan/PacMan_ch5.py:        keys = pygame.key.get_pressed()
+PacMan/PacMan_ch5.py:        if keys[pygame.K_UP] and couloir(grilleX, grilleY-1):
+PacMan/PacMan_ch5.py:        elif keys[pygame.K_DOWN] and couloir(grilleX, grilleY+1):
+PacMan/PacMan_ch5.py:        elif keys[pygame.K_LEFT] and couloir(grilleX-1, grilleY):
+PacMan/PacMan_ch5.py:        elif keys[pygame.K_RIGHT] and couloir(grilleX+1, grilleY):
+PacMan/PacMan_ch5.py:                pygame.draw.rect(surface, (0, 0, 255), pygame.Rect(
+PacMan/PacMan_ch5.py:                pygame.draw.circle(surface, (127, 32, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch5.py:                pygame.draw.circle(surface, (127, 127, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch5.py:pygame.init()
+PacMan/PacMan_ch5.py:screen = pygame.display.set_mode((width, height))
+PacMan/PacMan_ch5.py:pygame.display.set_caption("Pacman")
+PacMan/PacMan_ch5.py:font = pygame.font.Font(None, 100)
+PacMan/PacMan_ch5.py:clock = pygame.time.Clock()
+PacMan/PacMan_ch5.py:    for event in pygame.event.get():
+PacMan/PacMan_ch5.py:        if event.type == pygame.QUIT:
+PacMan/PacMan_ch5.py:    pygame.display.flip()
+PacMan/PacMan_ch5.py:pygame.quit()
+PacMan/PacMan_ch6.py:import pygame
+PacMan/PacMan_ch6.py:            image = pygame.image.load(os.path.join(
+PacMan/PacMan_ch6.py:            self.images.append(pygame.transform.scale(image, (taille, taille)))
+PacMan/PacMan_ch6.py:        return pygame.Rect(self.positionX, self.positionY, self.taille, self.taille)
+PacMan/PacMan_ch6.py:        keys = pygame.key.get_pressed()
+PacMan/PacMan_ch6.py:        if keys[pygame.K_UP] and couloir(grilleX, grilleY-1):
+PacMan/PacMan_ch6.py:        elif keys[pygame.K_DOWN] and couloir(grilleX, grilleY+1):
+PacMan/PacMan_ch6.py:        elif keys[pygame.K_LEFT] and couloir(grilleX-1, grilleY):
+PacMan/PacMan_ch6.py:        elif keys[pygame.K_RIGHT] and couloir(grilleX+1, grilleY):
+PacMan/PacMan_ch6.py:                pygame.draw.rect(surface, (0, 0, 255), pygame.Rect(
+PacMan/PacMan_ch6.py:                pygame.draw.circle(surface, (127, 32, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch6.py:                pygame.draw.circle(surface, (127, 127, 0), (marge_x+x*pixels_par_case+pixels_par_case/2, marge_y+y*pixels_par_case+pixels_par_case/2),
+PacMan/PacMan_ch6.py:pygame.init()
+PacMan/PacMan_ch6.py:screen = pygame.display.set_mode((width, height))
+PacMan/PacMan_ch6.py:pygame.display.set_caption("Pacman")
+PacMan/PacMan_ch6.py:font = pygame.font.Font(None, 100)
+PacMan/PacMan_ch6.py:clock = pygame.time.Clock()
+PacMan/PacMan_ch6.py:    for event in pygame.event.get():
+PacMan/PacMan_ch6.py:        if event.type == pygame.QUIT:
+PacMan/PacMan_ch6.py:    pygame.display.flip()
+PacMan/PacMan_ch6.py:pygame.quit()
+README.md:Writing classic games as a demonstration of pygame
+SmallBattle/SmallBattle.py:import pygame
+SmallBattle/SmallBattle.py:pygame.init()
+SmallBattle/SmallBattle.py:screen = pygame.display.set_mode((640, 480),  pygame.RESIZABLE)
+SmallBattle/SmallBattle.py:    image = pygame.Surface((GRIDSIZE, GRIDSIZE), flags=pygame.SRCALPHA)
+SmallBattle/SmallBattle.py:                pygame.draw.rect(image, color1, (x*4, y*4, 4, 4))
+SmallBattle/SmallBattle.py:class mySprite(pygame.sprite.Sprite):
+SmallBattle/SmallBattle.py:        self.rect=pygame.Rect(0,0,GRIDSIZE,GRIDSIZE)
+SmallBattle/SmallBattle.py:        self.screen = pygame.Surface((self.gameWidth, self.gameHeight))
+SmallBattle/SmallBattle.py:        screen.blit(pygame.transform.scale_by(self.screen, self.scale),
+SmallBattle/SmallBattle.py:        pygame.display.flip()
+SmallBattle/SmallBattle.py:        self.allSprites=pygame.sprite.Group(self.player)
+SmallBattle/SmallBattle.py:            if keys[pygame.K_y]:
+SmallBattle/SmallBattle.py:            elif keys[pygame.K_n]:
+SmallBattle/SmallBattle.py:                if keys[pygame.K_LEFT] and self.player.rect.top :
+SmallBattle/SmallBattle.py:                elif keys[pygame.K_RIGHT]:
+SmallBattle/SmallBattle.py:                elif keys[pygame.K_UP]:
+SmallBattle/SmallBattle.py:                elif keys[pygame.K_DOWN]:
+SmallBattle/SmallBattle.py:            # if keys[pygame.K_LEFT]:
+SmallBattle/SmallBattle.py:            # if keys[pygame.K_RIGHT]:
+SmallBattle/SmallBattle.py:            # if keys[pygame.K_UP]:
+SmallBattle/SmallBattle.py:            # if keys[pygame.K_DOWN]:
+SmallBattle/SmallBattle.py:                    pygame.draw.rect(screen,(100,100,80),pygame.Rect(x*GRIDSIZE,y*GRIDSIZE,GRIDSIZE,GRIDSIZE))
+SmallBattle/SmallBattle.py:clock = pygame.time.Clock()
+SmallBattle/SmallBattle.py:display_info = pygame.display.Info()
+SmallBattle/SmallBattle.py:    for e in pygame.event.get():
+SmallBattle/SmallBattle.py:        if e.type == pygame.QUIT:
+SmallBattle/SmallBattle.py:        if e.type == pygame.VIDEORESIZE:
+SmallBattle/SmallBattle.py:    keys = pygame.key.get_pressed()
+snake/snake.py:import pygame
+snake/snake.py:    font=pygame.font.Font(None,100)
+snake/snake.py:pygame.init()
+snake/snake.py:fenetre=pygame.display.set_mode((0,0))
+snake/snake.py:clock=pygame.time.Clock()
+snake/snake.py:    for event in pygame.event.get():
+snake/snake.py:        if event.type==pygame.QUIT:
+snake/snake.py:    keys=pygame.key.get_pressed()
+snake/snake.py:        if keys[pygame.K_UP]:
+snake/snake.py:        if keys[pygame.K_DOWN]:
+snake/snake.py:        if keys[pygame.K_LEFT]:
+snake/snake.py:        if keys[pygame.K_RIGHT]:
+snake/snake.py:        keys=pygame.key.get_pressed()
+snake/snake.py:        if keys[pygame.K_y] or keys[pygame.K_o] :
+snake/snake.py:        elif keys[pygame.K_n]:
+snake/snake.py:    pygame.draw.rect(fenetre,COULEUR_BORD, (marge_x-2,marge_y-2,n_cases*taille_case+4,n_cases*taille_case+4),2)
+snake/snake.py:        pygame.draw.rect(fenetre,COULEUR_SERPENT,(marge_x+c[0]*taille_case,marge_y+c[1]*taille_case,taille_case,taille_case))
+snake/snake.py:    pygame.draw.rect(fenetre,COULEUR_TETE,(marge_x+tete_x*taille_case,marge_y+tete_y*taille_case,taille_case,taille_case))
+snake/snake.py:    pygame.draw.circle(fenetre,COULEUR_POMME,(marge_x+taille_case//2+pomme_x*taille_case,marge_y+taille_case//2+pomme_y*taille_case),taille_case//2)
+snake/snake.py:    pygame.display.flip()
+snake/snake.py:pygame.quit()    
+spiro/spiro.py:import pygame
+spiro/spiro.py:pygame.init()
+spiro/spiro.py:screen = pygame.display.set_mode((800, 600))
+spiro/spiro.py:pygame.display.set_caption("Spiro")
+spiro/spiro.py:trace_surface = pygame.Surface((800, 600))
+spiro/spiro.py:clock = pygame.time.Clock()
+spiro/spiro.py:    for event in pygame.event.get():
+spiro/spiro.py:        if event.type == pygame.QUIT:
+spiro/spiro.py:    pygame.draw.line(trace_surface, BLUE, (int(prev_trace_x), int(prev_trace_y)),
+spiro/spiro.py:    pygame.draw.circle(screen, RED, (center_x, center_y),
+spiro/spiro.py:    pygame.draw.circle(screen, RED, (int(small_x), int(small_y)),
+spiro/spiro.py:    pygame.draw.circle(screen, BLUE, (int(small_x), int(small_y)), 4)
+spiro/spiro.py:    pygame.draw.circle(screen, BLUE, (int(trace_x), int(trace_y)), 8)
+spiro/spiro.py:    pygame.draw.line(screen, BLUE, (int(small_x), int(small_y)),
+spiro/spiro.py:    pygame.display.flip()
+spiro/spiro.py:pygame.quit()
