@@ -2,11 +2,12 @@ import pygame
 import random
 
 pygame.init()
-matrixCols=12
-matrixRows=20
+nColonnes=12
+nRangees=20
 
-screen=pygame.display.set_mode((20*matrixCols,20*matrixRows))
-Shapes=[[[1,1],
+screen=pygame.display.set_mode((20*nColonnes,20*nRangees))
+
+Formes=[[[1,1],
          [1,1]],
 
         [[1,1,1,1]],
@@ -27,118 +28,118 @@ Shapes=[[[1,1],
            [1,1,0]]
           
          ]
-matrix=[[0 for _ in range(matrixCols)] for _ in range(matrixRows)]
-color=[(0,0,0),(255,0,0),(0,255,0),(0,0,255),(0,127,127),(127,0,127),(127,127,0),(127,127,127)]
 
-def checkMatrix():
-    for r in range(matrixRows):
-        fill=True
-        for c in range(matrixCols):
-            if matrix[r][c]==0:
-                fill=False
+grille=[[0 for _ in range(nColonnes)] for _ in range(nRangees)]
+couleur=[(0,0,0),(255,0,0),(0,255,0),(0,0,255),(0,127,127),(127,0,127),(127,127,0),(255,127,0)]
+
+def checkLigne():
+    for r in range(nRangees):
+        complet=True
+        for c in range(nColonnes):
+            if grille[r][c]==0:
+                complet=False
                 break
-        if fill:
+        if complet:
             for r1 in range(r-1,-1,-1):
-                matrix[r1+1]=matrix[r1]                
-        matrix[0]=[0 for _ in range(matrixCols)]
-class Shape:
-    s=0
-    sx=0
-    sy=0
-    d=0
+                grille[r1+1]=grille[r1]                
+            grille[0]=[0 for _ in range(nColonnes)]
+
+class Piece:
     def new():
-        Shape.d=random.randrange(4)
-        Shape.s=random.randrange(len(Shapes))
-        Shape.sx=random.randrange(matrixCols-Shape.nCols())
-        Shape.sy=0
+        Piece.d=random.randrange(4)
+        Piece.s=random.randrange(len(Formes))
+        Piece.sx=random.randrange(nColonnes-Piece.tailleY())
+        Piece.sy=0
+        return Piece.collision()
     
-    def nRows():
-        return len(Shapes[Shape.s]) if Shape.d%2==0 else len(Shapes[Shape.s][0])
+    def tailleX():
+        return len(Formes[Piece.s]) if Piece.d%2==0 else len(Formes[Piece.s][0])
             
-    def nCols():
-        return len(Shapes[Shape.s][0]) if Shape.d%2==0 else len(Shapes[Shape.s])
+    def tailleY():
+        return len(Formes[Piece.s][0]) if Piece.d%2==0 else len(Formes[Piece.s])
 
     def getPixel(r,c):
-        match Shape.d:
+        match Piece.d:
             case 0:
-                return Shapes[Shape.s][r][c]
+                return Formes[Piece.s][r][c]
             case 1:
-                return Shapes[Shape.s][Shape.nCols()-c-1][r] 
+                return Formes[Piece.s][Piece.tailleY()-c-1][r] 
             case 2:
-                return Shapes[Shape.s][Shape.nRows()-r-1][Shape.nCols()-c-1]
+                return Formes[Piece.s][Piece.tailleX()-r-1][Piece.tailleY()-c-1]
             case 3:
-                return Shapes[Shape.s][c][Shape.nRows()-r-1] 
+                return Formes[Piece.s][c][Piece.tailleX()-r-1] 
         
-
     def gauche():
-        Shape.sx-=1
-        if Shape.collision():
-            Shape.sx+=1
+        Piece.sx-=1
+        if Piece.collision():
+            Piece.sx+=1
         
     def droite():
-        Shape.sx+=1
-        if Shape.collision():
-            Shape.sx-=1
+        Piece.sx+=1
+        if Piece.collision():
+            Piece.sx-=1
     def tourne():
-        Shape.d=(Shape.d+1)%4
-        if Shape.collision():
-            Shape.d=(Shape.d+3)%4
+        d=Piece.d
+        x=Piece.sx
+        Piece.d=(Piece.d+1)%4
+        if Piece.sx+Piece.tailleY()>=nColonnes:
+            Piece.sx=nColonnes-Piece.tailleY()
+        if Piece.collision():
+            Piece.d=d
+            Piece.sx=x
 
     def collision():
-        for r in range(Shape.nRows()):
-            for c in range(Shape.nCols()):
-                if Shape.getPixel(r,c):
-                    if Shape.sy+r>=matrixRows or Shape.sx+c>=matrixCols or Shape.sx<0 or matrix[Shape.sy+r][Shape.sx+c]:
+        for r in range(Piece.tailleX()):
+            for c in range(Piece.tailleY()):
+                if Piece.getPixel(r,c):
+                    if Piece.sy+r>=nRangees or Piece.sx+c>=nColonnes or Piece.sx<0 or grille[Piece.sy+r][Piece.sx+c]:
                         return True
         return False
-    def drop():
-        gameover=False
-        Shape.sy+=1
-        if Shape.sy+Shape.nRows()>matrixRows or Shape.collision():
-            Shape.sy-=1
-            for r in range(Shape.nRows()):
-                for c in range(Shape.nCols()):
-                    if Shape.getPixel(r,c):
-                        matrix[Shape.sy+r][Shape.sx+c]=Shape.s+1
-            checkMatrix()
-            Shape.new()
-            gameover= Shape.collision()
-        return gameover
-    def draw():
-        for r in range(Shape.nRows()):
-            for c in range(Shape.nCols()):
-                if Shape.getPixel(r,c):
-                    pygame.draw.rect(screen,color[Shape.s+1],pygame.Rect((Shape.sx+c)*20,(Shape.sy+r)*20,19,19))
-
-
-def drawMatrix():
-    for r in range(matrixRows):
-        for c in range(matrixCols):
-            pygame.draw.rect(screen,color[matrix[r][c]],pygame.Rect(c*20,r*20,19,19))
     
-Shape.new()
+    def chute():
+        Piece.sy+=1
+        if Piece.collision():
+            Piece.sy-=1
+            for r in range(Piece.tailleX()):
+                for c in range(Piece.tailleY()):
+                    if Piece.getPixel(r,c):
+                        grille[Piece.sy+r][Piece.sx+c]=Piece.s+1
+            checkLigne()
+            return Piece.new()
+        return False
+    
+Piece.new()
 
 clock=pygame.time.Clock()
 exit=False
-delay=6
+delay=12
 while not exit:
-    clock.tick(30)
+    clock.tick(60)
     for e in pygame.event.get():
         if e.type==pygame.QUIT:
             exit=True
         elif e.type==pygame.KEYDOWN:
             if e.key==pygame.K_LEFT:
-                Shape.gauche()
+                Piece.gauche()
             elif e.key==pygame.K_RIGHT:
-                Shape.droite()
+                Piece.droite()
             elif e.key==pygame.K_UP:
-                Shape.tourne()
+                Piece.tourne()
+            elif e.key==pygame.K_DOWN:
+                while Piece.sy>0:
+                    exit=Piece.chute()
+
     if delay==0:
-        exit=Shape.drop()
-        delay=6
+        exit=Piece.chute()
+        delay=12
     else:
         delay-=1
-    drawMatrix()
-    Shape.draw()
+    screen.fill((127,127,127))
+    for r in range(nRangees):
+        for c in range(nColonnes):
+            pygame.draw.rect(screen,couleur[grille[r][c]],pygame.Rect(c*20,r*20,19,19))
+    for r in range(Piece.tailleX()):
+        for c in range(Piece.tailleY()):
+            if Piece.getPixel(r,c):
+                pygame.draw.rect(screen,couleur[Piece.s+1],pygame.Rect((Piece.sx+c)*20,(Piece.sy+r)*20,19,19))
     pygame.display.flip()
-    
